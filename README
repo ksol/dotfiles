@@ -1,1 +1,6 @@
 This is my dot files.
+
+You can use these files directly, all you have to do is create some links.
+
+ln -s repo/zshrc ~/.zshrc
+ln repo/findup /usr/local/bin/findup
