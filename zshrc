@@ -1,6 +1,21 @@
 #!/bin/zsh
 
 # Functions
+function findup()
+{
+	arg="$1"
+	if test -z "$arg"; then exit 1; fi
+
+	while ! test -e "$arg"; do
+	 cd ..
+	 if test "$PWD" = "/"; then
+	    exit 1
+	 fi
+	done
+
+	echo $PWD/$arg	
+}
+
 function precmd()
 {
     # Adjust this to your current preferred prompt
