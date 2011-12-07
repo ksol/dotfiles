@@ -1,0 +1,12 @@
+## Installation
+
+* get the files you want, and put them at the right place;
+* clone the repo somewhere, and make the correct symlinks
+
+
+## Zsh
+
+My `.zshrc` and `.zshenv` are splitted in subfiles. The files loaded are located
+in `zshrc.d/enabled`; the files ending in `.mod` are loaded by `zshrc`, while the
+ones ending in `.env` are loaded by `zshenv`. The latter is loaded even in
+non-interactive sessions.
