@@ -1,5 +1,14 @@
 # Miscellaneous configuration
 
+# SVN Editor
+
+if [[ $(uname) == 'Darwin' ]]; then
+  export SVN_EDITOR="mate -w"
+else
+  export SVN_EDITOR="vim"
+fi
+
+
 export CLICOLOR=1                 # Enabling `ls` colors
 export HISTSIZE=2000              # How many lines kept in history
 export SAVEHIST=$HISTSIZE         

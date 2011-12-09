@@ -4,9 +4,13 @@
 * clone the repo somewhere, and make the correct symlinks
 
 
-## Zsh
+## Zshenv
 
-My `.zshrc` and `.zshenv` are splitted in subfiles. The files loaded are located
-in `zshrc.d/enabled`; the files ending in `.mod` are loaded by `zshrc`, while the
-ones ending in `.env` are loaded by `zshenv`. The latter is loaded even in
-non-interactive sessions.
+This file is loaded even during non interactive sessions, and must not produce
+any output.
+
+## Zshrc
+
+My `.zshrc` is splitted in subfiles.
+The files loaded are located in `zshrc.d/enabled`;
+either copy or symlink them from `zshrc.d/available`. 

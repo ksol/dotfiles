@@ -1,8 +1,10 @@
 ### Zsh environment file
 #
-# This file is loaded by zsh even during non-interactive sessions.
+# This file is loaded even during non interactive sessions.
 
-# Loading enabled modules
-for file in ~/.zshrc.d/enabled/*.env; do
-  source $file
-done
+# rbenv hooks
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# RVM hooks
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
