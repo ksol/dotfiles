@@ -14,8 +14,8 @@
   ls            = log --pretty=format:'%C(yellow)%h%Creset %ar | %Cgreen%an%Creset - %s'
   ci            = commit
   cia           = commit --all
-  cic           = commit --amend
-  ciac          = commit --all --amend
+  cic           = commit --amend --date="$(date)"
+  ciac          = commit --all --amend --date="$(date)"
   rb            = rebase
   rbi           = rebase -i
   
