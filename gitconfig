@@ -11,7 +11,7 @@
   co            = checkout
   st            = status
   br            = branch
-  ls            = log --pretty=format:'%C(yellow)%h%Creset %ar | %Cgreen%an%Creset - %s'
+  ls            = log --pretty=format:'%C(yellow)%h%Creset %ar\t| %Cgreen%an%Creset - %s'
   ci            = commit
   cia           = commit --all
   cic           = commit --amend --date="$(date)"
