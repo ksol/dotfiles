@@ -1,7 +1,7 @@
 # Setting up currently used bookmarks
 
 if [[ $(uname) == 'Darwin' ]]; then
-  export courses=~/Documents/Courses
-  export projects=~/Documents/Projects
-  export mtonight=~projects/Mtonight
+  # Bookmarks goes here and looks like this :
+  # export mybookmark=~/path/to/dir
+  # Then, you can use '~mybookmark' in your term.
 fi
