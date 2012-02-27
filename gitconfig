@@ -14,12 +14,11 @@
   ls            = log --pretty=format:'%C(yellow)%h%Creset %ar\t| %Cgreen%an%Creset - %s'
   ci            = commit
   cia           = commit --all
-  cic           = commit --amend --date="$(date)"
-  ciac          = commit --all --amend --date="$(date)"
+  cic           = commit --amend
+  ciac          = commit --all --amend
   rb            = rebase
   rbi           = rebase -i
-  
+
 [core]
   excludesfile  = ~/.gitignore    # Path must be explicit if gitv < 1.6.5.5
   editor        = mate -w         # OS X only, for TextMate
-                    
