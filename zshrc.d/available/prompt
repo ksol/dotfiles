@@ -23,6 +23,10 @@ function findup()
 	echo $PWD/$arg
 }
 
+function parse_git_dirty() {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+
 # Sets the prompt
 
 function precmd()
@@ -32,10 +36,9 @@ function precmd()
     local _git _branch
 
     _git=`findup .git`
-
     if test -n "$_git"; then
         _branch=`sed -e 's,.*/,,' $_git/HEAD`
-        PROMPT="$PROMPT [${cg}$_branch${cn}]"
+        PROMPT="$PROMPT [${cg}$_branch$(parse_git_dirty)${cn}]"
     fi
 
     # Add final character after the optional git branch (usually # or >)
