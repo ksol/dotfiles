@@ -6,19 +6,18 @@ cg="%{$fg[green]%}"
 
 export RPROMPT="[${cr}%~${cn}]"
 
-# Function used to find the .git folder
-
+# Search recursively in parent dir
 function findup()
 {
 	arg="$1"
 	if test -z "$arg"; then exit 1; fi
 
 	while ! test -e "$arg"; do
-	 cd ..
-   if test "$PWD" = "/"; then
-	    exit 1
-	 fi
-	done
+    cd ..
+    if test "$PWD" = "/"; then
+      exit 1
+    fi
+  done
 
 	echo $PWD/$arg
 }
@@ -36,9 +35,22 @@ function precmd()
     local _git _branch
 
     _git=`findup .git`
-    if test -n "$_git"; then
-        _branch=`sed -e 's,.*/,,' $_git/HEAD`
-        PROMPT="$PROMPT [${cg}$_branch$(parse_git_dirty)${cn}]"
+    if test -n "${_git}"; then
+        _branch=$(git symbolic-ref -q HEAD)
+        if [ $? -eq 0 ]; then
+          if [[ ${_branch} == refs/(heads|tags)/* ]]; then
+            _branch=${_branch#refs/(heads|tags)/}
+          fi
+        else
+          _branch=$(git name-rev --name-only --no-undefined --always HEAD)
+          if [ $? -ne 0 ]; then
+            return 1
+          elif [[ ${_branch} == remotes/* ]]; then
+            _branch=${_branch#remotes/}
+          fi
+        fi
+
+        PROMPT="$PROMPT [${cg}${_branch}$(parse_git_dirty)${cn}]"
     fi
 
     # Add final character after the optional git branch (usually # or >)
