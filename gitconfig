@@ -23,6 +23,10 @@
 [rerere]
   enabled = 1
 
+[push]
+  # Push only current branch to its upstream branch
+  default = upstream
+
 [core]
   excludesfile  = ~/.gitignore    # Path must be explicit if gitv < 1.6.5.5
   editor        = mate -w         # OS X only, for TextMate
