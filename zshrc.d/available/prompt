@@ -8,53 +8,21 @@ cy="%{$fg[yellow]%}"
 export RPROMPT="[${cr}%~${cn}]"
 export GIT_DIRTY_SYM=":${cy}⚡"
 
-# Search recursively in parent dir
-function findup()
-{
-	arg="$1"
-	if test -z "$arg"; then exit 1; fi
-
-	while ! test -e "$arg"; do
-    cd ..
-    if test "$PWD" = "/"; then
-      exit 1
-    fi
-  done
-
-	echo $PWD/$arg
-}
-
-function parse_git_dirty() {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo ${GIT_DIRTY_SYM}
-}
-
-# Sets the prompt
-
+# Executed before each prompt
 function precmd()
 {
+    local _git _prompt _branch _dirty
+
     # Adjust this to your current preferred prompt
-    PROMPT="[%n${cg}@${cn}%m]"
-    local _git _branch
-
+    _prompt="[%n${cg}@${cn}%m]"
     _git=`findup .git`
-    if test -n "${_git}"; then
-        _branch=$(git symbolic-ref -q HEAD)
-        if [ $? -eq 0 ]; then
-          if [[ ${_branch} == refs/(heads|tags)/* ]]; then
-            _branch=${_branch#refs/(heads|tags)/}
-          fi
-        else
-          _branch=$(git name-rev --name-only --no-undefined --always HEAD)
-          if [ $? -ne 0 ]; then
-            return 1
-          elif [[ ${_branch} == remotes/* ]]; then
-            _branch=${_branch#remotes/}
-          fi
-        fi
 
-        PROMPT="$PROMPT [${cg}${_branch}$(parse_git_dirty)${cn}]"
+    if test -n "${_git}"; then
+      _branch=$(git_pretty_rev_name)
+      _dirty=$(parse_git_dirty ${GIT_DIRTY_SYM})
+      _prompt="${_prompt} [${cg}${_branch}${_dirty}${cn}]"
     fi
 
     # Add final character after the optional git branch (usually # or >)
-    export PROMPT="$PROMPT ${cr}%(!.#.$)${cn} "
+    export PROMPT="${_prompt} ${cr}%(!.#.$)${cn} "
 }
