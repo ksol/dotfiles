@@ -25,7 +25,7 @@
 
 [push]
   # Push only current branch to its upstream branch
-  default = upstream
+  default = matching # upstream
 
 [core]
   excludesfile  = ~/.gitignore    # Path must be explicit if gitv < 1.6.5.5
