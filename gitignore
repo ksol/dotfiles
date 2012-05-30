@@ -1,2 +1,52 @@
+### OS related
+
+## OSX
 .DS_Store
-bin/
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+### Software related
+
+## Textmate
+*.tmproj
+*.tmproject
+tmtags
+
+## VIM
+.*.sw[a-z]
+*.un~
+Session.vim
+
+### Tools (languages, frameworks, ...) related
+
+## Ruby
+
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+
+## SASS Ignores - "Sassy CSS" http://sass-lang.com/
+.sass-cache
+
+## Bundler binstubs
+/bin
