@@ -1,0 +1,9 @@
+function h { heroku ${@:1:($#-1)} --remote ${@: -1} ; }
+function hp { h $@ production ; }
+function hs { h $@ staging ; }
+
+alias hpc="hp run console"
+alias hsc="hs run console"
+
+alias hpl="hp logs -t"
+alias hsl="hs logs -t"
