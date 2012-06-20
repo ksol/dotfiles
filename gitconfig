@@ -21,6 +21,7 @@
   ciac          = commit --all --amend
   rb            = rebase
   rbi           = rebase -i
+  authors       = shortlog -s
 
 [rerere]
   enabled = 1
