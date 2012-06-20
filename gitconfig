@@ -9,9 +9,11 @@
 [alias]
   d             = diff
   co            = checkout
-  st            = status
+  st            = status -sb
+  sts           = status
   br            = branch
   ls            = log --pretty=format:'%C(yellow)%h%Creset %ar\t| %Cgreen%an%Creset - %s'
+  lg            = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s | %C(blue)%an, %C(green)%cr %C(reset)' --abbrev-commit
   lsmy          = !(git ls --author="$(git config user.email)")
   ci            = commit
   cia           = commit --all
