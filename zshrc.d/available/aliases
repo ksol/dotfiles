@@ -1,3 +1,4 @@
 # Common aliases
 
 alias bx='bundle exec'
+alias bs='bundle show'
