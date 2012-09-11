@@ -44,7 +44,6 @@ tmp
 # YARD artifacts
 .yardoc
 _yardoc
-doc/
 
 ## SASS Ignores - "Sassy CSS" http://sass-lang.com/
 .sass-cache

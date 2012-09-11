@@ -1,2 +1,4 @@
 softTabs = true
 tabSize = 2
+fontSize = 12
+fontName = "Espresso Mono"

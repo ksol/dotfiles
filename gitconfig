@@ -15,6 +15,7 @@
   ls            = log --pretty=format:'%C(yellow)%h%Creset %ar\t| %Cgreen%an%Creset - %s'
   lg            = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s | %C(blue)%an, %C(green)%cr %C(reset)' --abbrev-commit
   lsmy          = !(git ls --author="$(git config user.email)")
+  wc            = whatchanged -p --abbrev-commit --pretty=medium
   ci            = commit
   cia           = commit --all
   cic           = commit --amend
