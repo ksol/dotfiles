@@ -3,14 +3,7 @@
 * get the files you want, and put them at the right place;
 * clone the repo somewhere, and make the correct symlinks
 
+## ZSH / oh-my-zsh
 
-## Zshenv
-
-This file is loaded even during non interactive sessions, and must not produce
-any output.
-
-## Zshrc
-
-My `.zshrc` is splitted in subfiles.
-The files loaded are located in `zshrc.d/enabled`;
-either copy or symlink them from `zshrc.d/available`. 
+* Files ending in `*.zsh` should go in `~/.oh-my-zsh/custom/`;
+* Files ending in `*.zsh-theme` should go in `~/.oh-my-zsh/themes/` and can be used by setting `ZSH_THEME` in your `~/.zshrc`.
