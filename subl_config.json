@@ -1,0 +1,12 @@
+{
+  "bold_folder_labels": true,
+  "caret_style": "phase",
+  "color_scheme": "Packages/Dayle Rees Color Schemes/TronLegacy.tmTheme",
+  "font_size": 11,
+  "git_gutter_live_mode": false,
+  "highlight_line": true,
+  "line_padding_bottom": 1,
+  "tab_size": 2,
+  "theme": "Soda Dark.sublime-theme",
+  "translate_tabs_to_spaces": true
+}
