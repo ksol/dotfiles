@@ -1,6 +1,0 @@
-# Common aliases
-
-alias bx='bundle exec'
-alias bs='bundle show'
-alias bu='bundle update'
-alias bo='bundle open'

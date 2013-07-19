@@ -1,7 +1,0 @@
-# Setting up currently used bookmarks
-
-if [[ $(uname) == 'Darwin' ]]; then
-  # Bookmarks goes here and looks like this :
-  # export mybookmark=~/path/to/dir
-  # Then, you can use '~mybookmark' in your term.
-fi

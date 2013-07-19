@@ -1,7 +1,0 @@
-alias hr="heroku run"
-alias hl="heroku logs"
-alias hrc="hr console -a"
-alias hlt="hl -ta"
-alias hrl="heroku releases -a"
-alias hrc="heroku run console -a"
-alias hlt="heroku logs -ta"
