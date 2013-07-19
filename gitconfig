@@ -5,7 +5,7 @@
   interactive   = auto
   ui            = true
   pager         = true
-
+  
 [alias]
   d             = diff
   co            = checkout
@@ -22,15 +22,17 @@
   ciac          = commit --all --amend
   rb            = rebase
   rbi           = rebase -i
+  mg            = merge --no-edit
+  prb           = pull --rebase
+  sprb          = !(git stash -u && git pull --rebase && git stash pop)
   authors       = shortlog -s
 
 [rerere]
   enabled = 1
 
-[push]
-  # Push only current branch to its upstream branch
-  default = matching # upstream
+[grep]
+  lineNumber = true
 
 [core]
   excludesfile  = ~/.gitignore    # Path must be explicit if gitv < 1.6.5.5
-  editor        = mate -w         # OS X only, for TextMate
+  editor        = subl -w         # Sublime Text needed here
