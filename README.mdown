@@ -1,9 +1,3 @@
-## Installation
+## ksol/dotfiles
 
-* get the files you want, and put them at the right place;
-* clone the repo somewhere, and make the correct symlinks
-
-## ZSH / oh-my-zsh
-
-* Files ending in `*.zsh` should go in `~/.oh-my-zsh/custom/`;
-* Files ending in `*.zsh-theme` should go in `~/.oh-my-zsh/themes/` and can be used by setting `ZSH_THEME` in your `~/.zshrc`.
+A few dotfiles, and a script to update them easily.
