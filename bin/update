@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+dotfiles_dir="$( cd "$(dirname "$0")/.." ; pwd -P )"
+home_dir="$( cd ~ ; pwd -P )"
+
+## Git files
+git_dir="${dotfiles_dir}/git"
+mkdir -p ${git_dir}
+
+cp "${home_dir}/.gitconfig" "${git_dir}/config"
+cp "${home_dir}/.gitignore" "${git_dir}/ignore"
+
+## Ruby
+ruby_dir="${dotfiles_dir}/ruby"
+mkdir -p ${ruby_dir}
+
+cp "${home_dir}/.gemrc" "${ruby_dir}/gemrc"
+
+## Vim
+vim_dir="${dotfiles_dir}/vim"
+mkdir -p ${vim_dir}
+
+cp "${home_dir}/.vimrc" "${vim_dir}/vimrc"
+
+## Atom
+home_atom_dir="${home_dir}/.atom"
+atom_dir="${dotfiles_dir}/atom"
+atom_files=(config.cson snippets.cson)
+
+mkdir -p ${atom_dir}
+
+for atom_file in ${atom_files[@]}; do
+  cp "${home_atom_dir}/${atom_file}" "${atom_dir}/${atom_file}"
+done
+
+## Bash
+bash_dir="${dotfiles_dir}/bash"
+bashrc="${home_dir}/.bashrc"
+bash_profile="${home_dir}/.bash_profile"
+
+if [ -f ${bashrc} ]; then
+  mkdir -p ${zsh_dir}
+
+  cp ${bashrc} "${zsh_dir}/bashrc"
+fi
+
+if [ -f ${bash_profile} ]; then
+  mkdir -p ${zsh_dir}
+
+  cp ${bash_profile} "${zsh_dir}/bash_profile"
+fi
+
+## ZSH
+zsh_dir="${dotfiles_dir}/zsh"
+zshrc="${home_dir}/.zshrc"
+zshenv="${home_dir}/.zshenv"
+
+if [ -f ${zshrc} ]; then
+  mkdir -p ${zsh_dir}
+
+  cp ${zshrc} "${zsh_dir}/zshrc"
+fi
+
+if [ -f ${zshenv} ]; then
+  mkdir -p ${zsh_dir}
+
+  cp ${zshenv} "${zsh_dir}/zshenv"
+fi
+
+## Oh My Zsh
+zsh_dir="${dotfiles_dir}/zsh/oh-my-zsh"
+zshcustoms="${home_dir}/.oh-my-zsh/custom"
+mkdir -p ${zsh_dir}
+
+for file in $(ls ${zshcustoms}/*.zsh); do
+  filename=$(basename $file)
+  cp ${file} "${zsh_dir}/${filename}"
+done
