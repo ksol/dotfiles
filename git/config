@@ -5,7 +5,7 @@
   interactive   = auto
   ui            = true
   pager         = true
-  
+
 [alias]
   d             = diff
   co            = checkout
@@ -34,5 +34,9 @@
   lineNumber = true
 
 [core]
-  excludesfile  = ~/.gitignore    # Path must be explicit if gitv < 1.6.5.5
-  editor        = subl -w         # Sublime Text needed here
+  excludesfile  = ~/.gitignore
+  editor        = vim         
+
+[user]
+	email = k@ksol.fr
+	name = Kevin Soltysiak
